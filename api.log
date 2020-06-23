@@ -1,0 +1,295 @@
+2020-06-23 16:50:10,162  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-06-23 16:50:10,166  * Restarting with stat
+2020-06-23 16:50:10,440  * Debugger is active!
+2020-06-23 16:50:10,445  * Debugger PIN: 256-398-385
+2020-06-23 16:50:30,515 Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2020-06-23 16:50:30,524 Changing event name from before-call.apigateway to before-call.api-gateway
+2020-06-23 16:50:30,525 Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2020-06-23 16:50:30,534 Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2020-06-23 16:50:30,534 Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2020-06-23 16:50:30,535 Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2020-06-23 16:50:30,537 Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2020-06-23 16:50:30,549 Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2020-06-23 16:50:30,550 Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2020-06-23 16:50:30,551 Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2020-06-23 16:50:30,553 Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2020-06-23 16:50:30,616 Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/boto3/data/dynamodb/2012-08-10/resources-1.json
+2020-06-23 16:50:30,651 Looking for credentials via: env
+2020-06-23 16:50:30,652 Looking for credentials via: assume-role
+2020-06-23 16:50:30,652 Looking for credentials via: assume-role-with-web-identity
+2020-06-23 16:50:30,652 Looking for credentials via: sso
+2020-06-23 16:50:30,652 Looking for credentials via: shared-credentials-file
+2020-06-23 16:50:30,653 Found credentials in shared credentials file: ~/.aws/credentials
+2020-06-23 16:50:30,655 Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/botocore/data/endpoints.json
+2020-06-23 16:50:30,679 Event choose-service-name: calling handler <function handle_service_name_alias at 0x10e650b00>
+2020-06-23 16:50:30,740 Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/botocore/data/dynamodb/2012-08-10/service-2.json
+2020-06-23 16:50:30,753 Event creating-client-class.dynamodb: calling handler <function add_generate_presigned_url at 0x10e6217a0>
+2020-06-23 16:50:30,813 Setting dynamodb timeout as (60, 60)
+2020-06-23 16:50:30,817 Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/botocore/data/_retry.json
+2020-06-23 16:50:30,818 Registering retry handlers for service: dynamodb
+2020-06-23 16:50:30,819 Loading dynamodb:dynamodb
+2020-06-23 16:50:30,820 Event creating-resource-class.dynamodb.ServiceResource: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:50:30,827 Loading dynamodb:Table
+2020-06-23 16:50:30,833 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38560>
+2020-06-23 16:50:30,835 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:50:30,841 Calling dynamodb:put_item with {'TableName': 'Table', 'Item': {'id': 682531, 'matrix': [[[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 16]], [[17, 21, 25, 29], [18, 22, 26, 30], [19, 23, 27, 31], [20, 24, 28, 32]], [[33, 37, 41, 45], [34, 38, 42, 46], [35, 39, 43, 47], [36, 40, 44, 48]], [[49, 53, 57, 61], [50, 54, 58, 62], [51, 55, 59, 63], [52, 56, 60, 64]]]}}
+2020-06-23 16:50:30,842 Event provide-client-params.dynamodb.PutItem: calling handler <function copy_dynamodb_params at 0x10fa598c0>
+2020-06-23 16:50:30,842 Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x10f9a9a50>>
+2020-06-23 16:50:30,843 Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x10f9a9a50>>
+2020-06-23 16:50:30,843 Event before-parameter-build.dynamodb.PutItem: calling handler <function generate_idempotent_uuid at 0x10e67ddd0>
+2020-06-23 16:50:30,843 Event before-parameter-build.dynamodb.PutItem: calling handler <function block_endpoint_discovery_required_operations at 0x10e5fc440>
+2020-06-23 16:50:30,847 Event before-call.dynamodb.PutItem: calling handler <function inject_api_version_header_if_needed at 0x10e689680>
+2020-06-23 16:50:30,847 Making request for OperationModel(name=PutItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.PutItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource'}, 'body': b'{"TableName": "Table", "Item": {"id": {"N": "682531"}, "matrix": {"L": [{"L": [{"L": [{"N": "1"}, {"N": "5"}, {"N": "9"}, {"N": "13"}]}, {"L": [{"N": "2"}, {"N": "6"}, {"N": "10"}, {"N": "14"}]}, {"L": [{"N": "3"}, {"N": "7"}, {"N": "11"}, {"N": "15"}]}, {"L": [{"N": "4"}, {"N": "8"}, {"N": "12"}, {"N": "16"}]}]}, {"L": [{"L": [{"N": "17"}, {"N": "21"}, {"N": "25"}, {"N": "29"}]}, {"L": [{"N": "18"}, {"N": "22"}, {"N": "26"}, {"N": "30"}]}, {"L": [{"N": "19"}, {"N": "23"}, {"N": "27"}, {"N": "31"}]}, {"L": [{"N": "20"}, {"N": "24"}, {"N": "28"}, {"N": "32"}]}]}, {"L": [{"L": [{"N": "33"}, {"N": "37"}, {"N": "41"}, {"N": "45"}]}, {"L": [{"N": "34"}, {"N": "38"}, {"N": "42"}, {"N": "46"}]}, {"L": [{"N": "35"}, {"N": "39"}, {"N": "43"}, {"N": "47"}]}, {"L": [{"N": "36"}, {"N": "40"}, {"N": "44"}, {"N": "48"}]}]}, {"L": [{"L": [{"N": "49"}, {"N": "53"}, {"N": "57"}, {"N": "61"}]}, {"L": [{"N": "50"}, {"N": "54"}, {"N": "58"}, {"N": "62"}]}, {"L": [{"N": "51"}, {"N": "55"}, {"N": "59"}, {"N": "63"}]}, {"L": [{"N": "52"}, {"N": "56"}, {"N": "60"}, {"N": "64"}]}]}]}}}', 'url': 'https://dynamodb.us-east-2.amazonaws.com/', 'context': {'client_region': 'us-east-2', 'client_config': <botocore.config.Config object at 0x10fa468d0>, 'has_streaming_input': False, 'auth_type': None}}
+2020-06-23 16:50:30,847 Event request-created.dynamodb.PutItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x10fa46890>>
+2020-06-23 16:50:30,848 Event choose-signer.dynamodb.PutItem: calling handler <function set_operation_specific_signer at 0x10e67d320>
+2020-06-23 16:50:30,849 Calculating signature using v4 auth.
+2020-06-23 16:50:30,849 CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:dynamodb.us-east-2.amazonaws.com
+x-amz-date:20200623T135030Z
+x-amz-target:DynamoDB_20120810.PutItem
+
+content-type;host;x-amz-date;x-amz-target
+9f3a826c5ffb199394f4ae70ded4911d4d9c3da721257303b651e3e6786e2c5b
+2020-06-23 16:50:30,849 StringToSign:
+AWS4-HMAC-SHA256
+20200623T135030Z
+20200623/us-east-2/dynamodb/aws4_request
+09b3606ae8021ebe9dd96fd3304a9a3ba034cd8dbddb2efb9c45ed36352d2d5c
+2020-06-23 16:50:30,849 Signature:
+58b946c63f737270a5027fbb8ff63ba9f05f5808c5a49247a0781a9218f9629e
+2020-06-23 16:50:30,849 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://dynamodb.us-east-2.amazonaws.com/, headers={'X-Amz-Target': b'DynamoDB_20120810.PutItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource', 'X-Amz-Date': b'20200623T135030Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAS6WGLHB5FZBPBHXG/20200623/us-east-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=58b946c63f737270a5027fbb8ff63ba9f05f5808c5a49247a0781a9218f9629e', 'Content-Length': '1077'}>
+2020-06-23 16:50:30,850 Starting new HTTPS connection (1): dynamodb.us-east-2.amazonaws.com:443
+2020-06-23 16:50:31,570 https://dynamodb.us-east-2.amazonaws.com:443 "POST / HTTP/1.1" 200 2
+2020-06-23 16:50:31,571 Response headers: {'Server': 'Server', 'Date': 'Tue, 23 Jun 2020 13:50:31 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'Content-Length': '2', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'QOD28POPJUG2AMEA2S3B5MEFD3VV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '2745614147'}
+2020-06-23 16:50:31,571 Response body:
+b'{}'
+2020-06-23 16:50:31,572 Event needs-retry.dynamodb.PutItem: calling handler <botocore.retryhandler.RetryHandler object at 0x10ed9ab90>
+2020-06-23 16:50:31,572 No retry needed.
+2020-06-23 16:50:31,573 Event after-call.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x10f9a9a50>>
+2020-06-23 16:50:31,573 Response: {'ResponseMetadata': {'RequestId': 'QOD28POPJUG2AMEA2S3B5MEFD3VV4KQNSO5AEMVJF66Q9ASUAAJG', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'Server', 'date': 'Tue, 23 Jun 2020 13:50:31 GMT', 'content-type': 'application/x-amz-json-1.0', 'content-length': '2', 'connection': 'keep-alive', 'x-amzn-requestid': 'QOD28POPJUG2AMEA2S3B5MEFD3VV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '2745614147'}, 'RetryAttempts': 0}}
+2020-06-23 16:50:31,579 127.0.0.1 - - [23/Jun/2020 16:50:31] "[37mPOST / HTTP/1.1[0m" 200 -
+2020-06-23 16:51:09,254 Event choose-service-name: calling handler <function handle_service_name_alias at 0x10e650b00>
+2020-06-23 16:51:09,255 Event creating-client-class.dynamodb: calling handler <function add_generate_presigned_url at 0x10e6217a0>
+2020-06-23 16:51:09,296 Setting dynamodb timeout as (60, 60)
+2020-06-23 16:51:09,298 Registering retry handlers for service: dynamodb
+2020-06-23 16:51:09,299 Loading dynamodb:dynamodb
+2020-06-23 16:51:09,302 Event creating-resource-class.dynamodb.ServiceResource: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:51:09,303 Loading dynamodb:Table
+2020-06-23 16:51:09,306 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38560>
+2020-06-23 16:51:09,306 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:51:09,307 Calling dynamodb:get_item with {'TableName': 'Table', 'Key': {'id': 94257}}
+2020-06-23 16:51:09,307 Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x10fa598c0>
+2020-06-23 16:51:09,307 Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x10fadff10>>
+2020-06-23 16:51:09,308 Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x10fadff10>>
+2020-06-23 16:51:09,308 Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x10e67ddd0>
+2020-06-23 16:51:09,308 Event before-parameter-build.dynamodb.GetItem: calling handler <function block_endpoint_discovery_required_operations at 0x10e5fc440>
+2020-06-23 16:51:09,308 Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x10e689680>
+2020-06-23 16:51:09,308 Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource'}, 'body': b'{"TableName": "Table", "Key": {"id": {"N": "94257"}}}', 'url': 'https://dynamodb.us-east-2.amazonaws.com/', 'context': {'client_region': 'us-east-2', 'client_config': <botocore.config.Config object at 0x10ed9ab90>, 'has_streaming_input': False, 'auth_type': None}}
+2020-06-23 16:51:09,308 Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x10fa4dd50>>
+2020-06-23 16:51:09,309 Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x10e67d320>
+2020-06-23 16:51:09,309 Calculating signature using v4 auth.
+2020-06-23 16:51:09,309 CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:dynamodb.us-east-2.amazonaws.com
+x-amz-date:20200623T135109Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+2acf682024865037fba458f1add8b216731d3163ff1615b5e04d5450a8c830ee
+2020-06-23 16:51:09,309 StringToSign:
+AWS4-HMAC-SHA256
+20200623T135109Z
+20200623/us-east-2/dynamodb/aws4_request
+e0f4e53d1214731045c734f72dfa60c64542955a590a559fd9980d89ebd10302
+2020-06-23 16:51:09,309 Signature:
+a329e54de70006993b282375aba903a6c840f8497d5643e14dabfcc4c2fb8f70
+2020-06-23 16:51:09,309 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://dynamodb.us-east-2.amazonaws.com/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource', 'X-Amz-Date': b'20200623T135109Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAS6WGLHB5FZBPBHXG/20200623/us-east-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=a329e54de70006993b282375aba903a6c840f8497d5643e14dabfcc4c2fb8f70', 'Content-Length': '53'}>
+2020-06-23 16:51:09,310 Starting new HTTPS connection (1): dynamodb.us-east-2.amazonaws.com:443
+2020-06-23 16:51:10,036 https://dynamodb.us-east-2.amazonaws.com:443 "POST / HTTP/1.1" 200 901
+2020-06-23 16:51:10,036 Response headers: {'Server': 'Server', 'Date': 'Tue, 23 Jun 2020 13:51:09 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'Content-Length': '901', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'PDKDPSG9RJB6U191E42T07EKAVVV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '940513088'}
+2020-06-23 16:51:10,037 Response body:
+b'{"Item":{"id":{"N":"94257"},"matrix":{"L":[{"L":[{"L":[{"N":"1"},{"N":"5"},{"N":"9"},{"N":"13"}]},{"L":[{"N":"2"},{"N":"6"},{"N":"10"},{"N":"14"}]},{"L":[{"N":"3"},{"N":"7"},{"N":"11"},{"N":"15"}]},{"L":[{"N":"4"},{"N":"8"},{"N":"12"},{"N":"16"}]}]},{"L":[{"L":[{"N":"17"},{"N":"21"},{"N":"25"},{"N":"29"}]},{"L":[{"N":"18"},{"N":"22"},{"N":"26"},{"N":"30"}]},{"L":[{"N":"19"},{"N":"23"},{"N":"27"},{"N":"31"}]},{"L":[{"N":"20"},{"N":"24"},{"N":"28"},{"N":"32"}]}]},{"L":[{"L":[{"N":"33"},{"N":"37"},{"N":"41"},{"N":"45"}]},{"L":[{"N":"34"},{"N":"38"},{"N":"42"},{"N":"46"}]},{"L":[{"N":"35"},{"N":"39"},{"N":"43"},{"N":"47"}]},{"L":[{"N":"36"},{"N":"40"},{"N":"44"},{"N":"48"}]}]},{"L":[{"L":[{"N":"49"},{"N":"53"},{"N":"57"},{"N":"61"}]},{"L":[{"N":"50"},{"N":"54"},{"N":"58"},{"N":"62"}]},{"L":[{"N":"51"},{"N":"55"},{"N":"59"},{"N":"63"}]},{"L":[{"N":"52"},{"N":"56"},{"N":"60"},{"N":"64"}]}]}]}}}'
+2020-06-23 16:51:10,039 Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x10f980f10>
+2020-06-23 16:51:10,039 No retry needed.
+2020-06-23 16:51:10,039 Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x10fadff10>>
+2020-06-23 16:51:10,039 Response: {'Item': {'id': Decimal('94257'), 'matrix': [[[Decimal('1'), Decimal('5'), Decimal('9'), Decimal('13')], [Decimal('2'), Decimal('6'), Decimal('10'), Decimal('14')], [Decimal('3'), Decimal('7'), Decimal('11'), Decimal('15')], [Decimal('4'), Decimal('8'), Decimal('12'), Decimal('16')]], [[Decimal('17'), Decimal('21'), Decimal('25'), Decimal('29')], [Decimal('18'), Decimal('22'), Decimal('26'), Decimal('30')], [Decimal('19'), Decimal('23'), Decimal('27'), Decimal('31')], [Decimal('20'), Decimal('24'), Decimal('28'), Decimal('32')]], [[Decimal('33'), Decimal('37'), Decimal('41'), Decimal('45')], [Decimal('34'), Decimal('38'), Decimal('42'), Decimal('46')], [Decimal('35'), Decimal('39'), Decimal('43'), Decimal('47')], [Decimal('36'), Decimal('40'), Decimal('44'), Decimal('48')]], [[Decimal('49'), Decimal('53'), Decimal('57'), Decimal('61')], [Decimal('50'), Decimal('54'), Decimal('58'), Decimal('62')], [Decimal('51'), Decimal('55'), Decimal('59'), Decimal('63')], [Decimal('52'), Decimal('56'), Decimal('60'), Decimal('64')]]]}, 'ResponseMetadata': {'RequestId': 'PDKDPSG9RJB6U191E42T07EKAVVV4KQNSO5AEMVJF66Q9ASUAAJG', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'Server', 'date': 'Tue, 23 Jun 2020 13:51:09 GMT', 'content-type': 'application/x-amz-json-1.0', 'content-length': '901', 'connection': 'keep-alive', 'x-amzn-requestid': 'PDKDPSG9RJB6U191E42T07EKAVVV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '940513088'}, 'RetryAttempts': 0}}
+2020-06-23 16:51:10,042 127.0.0.1 - - [23/Jun/2020 16:51:10] "[37mGET /94257 HTTP/1.1[0m" 200 -
+2020-06-23 16:51:16,317 Event choose-service-name: calling handler <function handle_service_name_alias at 0x10e650b00>
+2020-06-23 16:51:16,318 Event creating-client-class.dynamodb: calling handler <function add_generate_presigned_url at 0x10e6217a0>
+2020-06-23 16:51:16,322 Setting dynamodb timeout as (60, 60)
+2020-06-23 16:51:16,323 Registering retry handlers for service: dynamodb
+2020-06-23 16:51:16,324 Loading dynamodb:dynamodb
+2020-06-23 16:51:16,324 Event creating-resource-class.dynamodb.ServiceResource: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:51:16,326 Loading dynamodb:Table
+2020-06-23 16:51:16,327 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38560>
+2020-06-23 16:51:16,327 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:51:16,328 Calling dynamodb:get_item with {'TableName': 'Table', 'Key': {'id': 682531}}
+2020-06-23 16:51:16,328 Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x10fa598c0>
+2020-06-23 16:51:16,328 Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x10fad5e10>>
+2020-06-23 16:51:16,328 Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x10fad5e10>>
+2020-06-23 16:51:16,328 Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x10e67ddd0>
+2020-06-23 16:51:16,329 Event before-parameter-build.dynamodb.GetItem: calling handler <function block_endpoint_discovery_required_operations at 0x10e5fc440>
+2020-06-23 16:51:16,329 Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x10e689680>
+2020-06-23 16:51:16,329 Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource'}, 'body': b'{"TableName": "Table", "Key": {"id": {"N": "682531"}}}', 'url': 'https://dynamodb.us-east-2.amazonaws.com/', 'context': {'client_region': 'us-east-2', 'client_config': <botocore.config.Config object at 0x10fadf1d0>, 'has_streaming_input': False, 'auth_type': None}}
+2020-06-23 16:51:16,329 Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x10fadf090>>
+2020-06-23 16:51:16,329 Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x10e67d320>
+2020-06-23 16:51:16,330 Calculating signature using v4 auth.
+2020-06-23 16:51:16,330 CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:dynamodb.us-east-2.amazonaws.com
+x-amz-date:20200623T135116Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+1676e508271c0daac235268d2c38c519722b5c851c13a92331ae95dda3a4d510
+2020-06-23 16:51:16,330 StringToSign:
+AWS4-HMAC-SHA256
+20200623T135116Z
+20200623/us-east-2/dynamodb/aws4_request
+7ba6c99b5309d18bb87de289116559713e28e1b789e9cb5f29f7974ee790f940
+2020-06-23 16:51:16,330 Signature:
+b337bfa1549f9da9841778d5b53df91566f30a5910171d689952ecc9db15bc94
+2020-06-23 16:51:16,330 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://dynamodb.us-east-2.amazonaws.com/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource', 'X-Amz-Date': b'20200623T135116Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAS6WGLHB5FZBPBHXG/20200623/us-east-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=b337bfa1549f9da9841778d5b53df91566f30a5910171d689952ecc9db15bc94', 'Content-Length': '54'}>
+2020-06-23 16:51:16,331 Starting new HTTPS connection (1): dynamodb.us-east-2.amazonaws.com:443
+2020-06-23 16:51:16,969 https://dynamodb.us-east-2.amazonaws.com:443 "POST / HTTP/1.1" 200 902
+2020-06-23 16:51:16,970 Response headers: {'Server': 'Server', 'Date': 'Tue, 23 Jun 2020 13:51:16 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'Content-Length': '902', 'Connection': 'keep-alive', 'x-amzn-RequestId': '9064JLL26RHLEAFHVK37QKEVS3VV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '3510191262'}
+2020-06-23 16:51:16,970 Response body:
+b'{"Item":{"id":{"N":"682531"},"matrix":{"L":[{"L":[{"L":[{"N":"1"},{"N":"5"},{"N":"9"},{"N":"13"}]},{"L":[{"N":"2"},{"N":"6"},{"N":"10"},{"N":"14"}]},{"L":[{"N":"3"},{"N":"7"},{"N":"11"},{"N":"15"}]},{"L":[{"N":"4"},{"N":"8"},{"N":"12"},{"N":"16"}]}]},{"L":[{"L":[{"N":"17"},{"N":"21"},{"N":"25"},{"N":"29"}]},{"L":[{"N":"18"},{"N":"22"},{"N":"26"},{"N":"30"}]},{"L":[{"N":"19"},{"N":"23"},{"N":"27"},{"N":"31"}]},{"L":[{"N":"20"},{"N":"24"},{"N":"28"},{"N":"32"}]}]},{"L":[{"L":[{"N":"33"},{"N":"37"},{"N":"41"},{"N":"45"}]},{"L":[{"N":"34"},{"N":"38"},{"N":"42"},{"N":"46"}]},{"L":[{"N":"35"},{"N":"39"},{"N":"43"},{"N":"47"}]},{"L":[{"N":"36"},{"N":"40"},{"N":"44"},{"N":"48"}]}]},{"L":[{"L":[{"N":"49"},{"N":"53"},{"N":"57"},{"N":"61"}]},{"L":[{"N":"50"},{"N":"54"},{"N":"58"},{"N":"62"}]},{"L":[{"N":"51"},{"N":"55"},{"N":"59"},{"N":"63"}]},{"L":[{"N":"52"},{"N":"56"},{"N":"60"},{"N":"64"}]}]}]}}}'
+2020-06-23 16:51:16,972 Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x10fad5550>
+2020-06-23 16:51:16,972 No retry needed.
+2020-06-23 16:51:16,972 Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x10fad5e10>>
+2020-06-23 16:51:16,973 Response: {'Item': {'id': Decimal('682531'), 'matrix': [[[Decimal('1'), Decimal('5'), Decimal('9'), Decimal('13')], [Decimal('2'), Decimal('6'), Decimal('10'), Decimal('14')], [Decimal('3'), Decimal('7'), Decimal('11'), Decimal('15')], [Decimal('4'), Decimal('8'), Decimal('12'), Decimal('16')]], [[Decimal('17'), Decimal('21'), Decimal('25'), Decimal('29')], [Decimal('18'), Decimal('22'), Decimal('26'), Decimal('30')], [Decimal('19'), Decimal('23'), Decimal('27'), Decimal('31')], [Decimal('20'), Decimal('24'), Decimal('28'), Decimal('32')]], [[Decimal('33'), Decimal('37'), Decimal('41'), Decimal('45')], [Decimal('34'), Decimal('38'), Decimal('42'), Decimal('46')], [Decimal('35'), Decimal('39'), Decimal('43'), Decimal('47')], [Decimal('36'), Decimal('40'), Decimal('44'), Decimal('48')]], [[Decimal('49'), Decimal('53'), Decimal('57'), Decimal('61')], [Decimal('50'), Decimal('54'), Decimal('58'), Decimal('62')], [Decimal('51'), Decimal('55'), Decimal('59'), Decimal('63')], [Decimal('52'), Decimal('56'), Decimal('60'), Decimal('64')]]]}, 'ResponseMetadata': {'RequestId': '9064JLL26RHLEAFHVK37QKEVS3VV4KQNSO5AEMVJF66Q9ASUAAJG', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'Server', 'date': 'Tue, 23 Jun 2020 13:51:16 GMT', 'content-type': 'application/x-amz-json-1.0', 'content-length': '902', 'connection': 'keep-alive', 'x-amzn-requestid': '9064JLL26RHLEAFHVK37QKEVS3VV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '3510191262'}, 'RetryAttempts': 0}}
+2020-06-23 16:51:16,975 127.0.0.1 - - [23/Jun/2020 16:51:16] "[37mGET /682531 HTTP/1.1[0m" 200 -
+2020-06-23 16:51:51,429 Event choose-service-name: calling handler <function handle_service_name_alias at 0x10e650b00>
+2020-06-23 16:51:51,431 Event creating-client-class.dynamodb: calling handler <function add_generate_presigned_url at 0x10e6217a0>
+2020-06-23 16:51:51,477 Setting dynamodb timeout as (60, 60)
+2020-06-23 16:51:51,479 Registering retry handlers for service: dynamodb
+2020-06-23 16:51:51,480 Loading dynamodb:dynamodb
+2020-06-23 16:51:51,482 Event creating-resource-class.dynamodb.ServiceResource: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:51:51,484 Loading dynamodb:Table
+2020-06-23 16:51:51,486 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38560>
+2020-06-23 16:51:51,488 Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x10ed38320>
+2020-06-23 16:51:51,493 Calling dynamodb:delete_item with {'TableName': 'Table', 'Key': {'id': 682531}}
+2020-06-23 16:51:51,495 Event provide-client-params.dynamodb.DeleteItem: calling handler <function copy_dynamodb_params at 0x10fa598c0>
+2020-06-23 16:51:51,496 Event before-parameter-build.dynamodb.DeleteItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x10fb26410>>
+2020-06-23 16:51:51,500 Event before-parameter-build.dynamodb.DeleteItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x10fb26410>>
+2020-06-23 16:51:51,502 Event before-parameter-build.dynamodb.DeleteItem: calling handler <function generate_idempotent_uuid at 0x10e67ddd0>
+2020-06-23 16:51:51,503 Event before-parameter-build.dynamodb.DeleteItem: calling handler <function block_endpoint_discovery_required_operations at 0x10e5fc440>
+2020-06-23 16:51:51,504 Event before-call.dynamodb.DeleteItem: calling handler <function inject_api_version_header_if_needed at 0x10e689680>
+2020-06-23 16:51:51,504 Making request for OperationModel(name=DeleteItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.DeleteItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource'}, 'body': b'{"TableName": "Table", "Key": {"id": {"N": "682531"}}}', 'url': 'https://dynamodb.us-east-2.amazonaws.com/', 'context': {'client_region': 'us-east-2', 'client_config': <botocore.config.Config object at 0x10fb12ed0>, 'has_streaming_input': False, 'auth_type': None}}
+2020-06-23 16:51:51,504 Event request-created.dynamodb.DeleteItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x10fb12910>>
+2020-06-23 16:51:51,504 Event choose-signer.dynamodb.DeleteItem: calling handler <function set_operation_specific_signer at 0x10e67d320>
+2020-06-23 16:51:51,505 Calculating signature using v4 auth.
+2020-06-23 16:51:51,505 CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:dynamodb.us-east-2.amazonaws.com
+x-amz-date:20200623T135151Z
+x-amz-target:DynamoDB_20120810.DeleteItem
+
+content-type;host;x-amz-date;x-amz-target
+1676e508271c0daac235268d2c38c519722b5c851c13a92331ae95dda3a4d510
+2020-06-23 16:51:51,505 StringToSign:
+AWS4-HMAC-SHA256
+20200623T135151Z
+20200623/us-east-2/dynamodb/aws4_request
+27bac856ef4b8617bdf11a4411c982312955f229023b6654e2b15956a093a578
+2020-06-23 16:51:51,505 Signature:
+1db57d28282835d37177ba5b3d690a933a90bbc2a42402151dd7dd8002a12f21
+2020-06-23 16:51:51,505 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://dynamodb.us-east-2.amazonaws.com/, headers={'X-Amz-Target': b'DynamoDB_20120810.DeleteItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource', 'X-Amz-Date': b'20200623T135151Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAS6WGLHB5FZBPBHXG/20200623/us-east-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=1db57d28282835d37177ba5b3d690a933a90bbc2a42402151dd7dd8002a12f21', 'Content-Length': '54'}>
+2020-06-23 16:51:51,506 Starting new HTTPS connection (1): dynamodb.us-east-2.amazonaws.com:443
+2020-06-23 16:51:52,159 https://dynamodb.us-east-2.amazonaws.com:443 "POST / HTTP/1.1" 200 2
+2020-06-23 16:51:52,160 Response headers: {'Server': 'Server', 'Date': 'Tue, 23 Jun 2020 13:51:52 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'Content-Length': '2', 'Connection': 'keep-alive', 'x-amzn-RequestId': '9NJ22S8QVQBA4VI38AH1SJQSKFVV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '2745614147'}
+2020-06-23 16:51:52,160 Response body:
+b'{}'
+2020-06-23 16:51:52,161 Event needs-retry.dynamodb.DeleteItem: calling handler <botocore.retryhandler.RetryHandler object at 0x10fb1e7d0>
+2020-06-23 16:51:52,161 No retry needed.
+2020-06-23 16:51:52,161 Event after-call.dynamodb.DeleteItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x10fb26410>>
+2020-06-23 16:51:52,161 Response: {'ResponseMetadata': {'RequestId': '9NJ22S8QVQBA4VI38AH1SJQSKFVV4KQNSO5AEMVJF66Q9ASUAAJG', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'Server', 'date': 'Tue, 23 Jun 2020 13:51:52 GMT', 'content-type': 'application/x-amz-json-1.0', 'content-length': '2', 'connection': 'keep-alive', 'x-amzn-requestid': '9NJ22S8QVQBA4VI38AH1SJQSKFVV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '2745614147'}, 'RetryAttempts': 0}}
+2020-06-23 16:51:52,165 127.0.0.1 - - [23/Jun/2020 16:51:52] "[37mDELETE /682531 HTTP/1.1[0m" 204 -
+2020-06-23 17:20:11,639  * Detected change in '/Users/atramors/Desktop/intern/api.py', reloading
+2020-06-23 17:20:11,702  * Restarting with stat
+2020-06-23 17:20:12,165 _log  * Debugger is active!
+2020-06-23 17:20:12,171 _log  * Debugger PIN: 256-398-385
+2020-06-23 17:20:30,640 _alias_event_name Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2020-06-23 17:20:30,645 _alias_event_name Changing event name from before-call.apigateway to before-call.api-gateway
+2020-06-23 17:20:30,647 _alias_event_name Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2020-06-23 17:20:30,658 _alias_event_name Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2020-06-23 17:20:30,666 _alias_event_name Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2020-06-23 17:20:30,670 _alias_event_name Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2020-06-23 17:20:30,673 _alias_event_name Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2020-06-23 17:20:30,695 _alias_event_name Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2020-06-23 17:20:30,695 _alias_event_name Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2020-06-23 17:20:30,696 _alias_event_name Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2020-06-23 17:20:30,696 _alias_event_name Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2020-06-23 17:20:30,774 load_file Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/boto3/data/dynamodb/2012-08-10/resources-1.json
+2020-06-23 17:20:30,807 load_credentials Looking for credentials via: env
+2020-06-23 17:20:30,808 load_credentials Looking for credentials via: assume-role
+2020-06-23 17:20:30,808 load_credentials Looking for credentials via: assume-role-with-web-identity
+2020-06-23 17:20:30,808 load_credentials Looking for credentials via: sso
+2020-06-23 17:20:30,808 load_credentials Looking for credentials via: shared-credentials-file
+2020-06-23 17:20:30,809 load Found credentials in shared credentials file: ~/.aws/credentials
+2020-06-23 17:20:30,810 load_file Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/botocore/data/endpoints.json
+2020-06-23 17:20:30,827 _emit Event choose-service-name: calling handler <function handle_service_name_alias at 0x106759b00>
+2020-06-23 17:20:30,855 load_file Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/botocore/data/dynamodb/2012-08-10/service-2.json
+2020-06-23 17:20:30,864 _emit Event creating-client-class.dynamodb: calling handler <function add_generate_presigned_url at 0x10672a7a0>
+2020-06-23 17:20:30,956 create_endpoint Setting dynamodb timeout as (60, 60)
+2020-06-23 17:20:30,959 load_file Loading JSON file: /Users/atramors/.local/share/virtualenvs/intern-fDUHLOJW/lib/python3.7/site-packages/botocore/data/_retry.json
+2020-06-23 17:20:30,960 _register_legacy_retries Registering retry handlers for service: dynamodb
+2020-06-23 17:20:30,961 load_from_definition Loading dynamodb:dynamodb
+2020-06-23 17:20:30,962 _emit Event creating-resource-class.dynamodb.ServiceResource: calling handler <function lazy_call.<locals>._handler at 0x106e40320>
+2020-06-23 17:20:30,975 load_from_definition Loading dynamodb:Table
+2020-06-23 17:20:30,978 _emit Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x106e40560>
+2020-06-23 17:20:30,979 _emit Event creating-resource-class.dynamodb.Table: calling handler <function lazy_call.<locals>._handler at 0x106e40320>
+2020-06-23 17:20:30,982 __call__ Calling dynamodb:put_item with {'TableName': 'Table', 'Item': {'id': 403586, 'matrix': [[[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 16]], [[17, 21, 25, 29], [18, 22, 26, 30], [19, 23, 27, 31], [20, 24, 28, 32]], [[33, 37, 41, 45], [34, 38, 42, 46], [35, 39, 43, 47], [36, 40, 44, 48]], [[49, 53, 57, 61], [50, 54, 58, 62], [51, 55, 59, 63], [52, 56, 60, 64]]]}}
+2020-06-23 17:20:30,983 _emit Event provide-client-params.dynamodb.PutItem: calling handler <function copy_dynamodb_params at 0x107b628c0>
+2020-06-23 17:20:30,984 _emit Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x107ab29d0>>
+2020-06-23 17:20:30,984 _emit Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x107ab29d0>>
+2020-06-23 17:20:30,985 _emit Event before-parameter-build.dynamodb.PutItem: calling handler <function generate_idempotent_uuid at 0x106786dd0>
+2020-06-23 17:20:30,985 _emit Event before-parameter-build.dynamodb.PutItem: calling handler <function block_endpoint_discovery_required_operations at 0x106705440>
+2020-06-23 17:20:30,987 _emit Event before-call.dynamodb.PutItem: calling handler <function inject_api_version_header_if_needed at 0x106792680>
+2020-06-23 17:20:30,987 make_request Making request for OperationModel(name=PutItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.PutItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource'}, 'body': b'{"TableName": "Table", "Item": {"id": {"N": "403586"}, "matrix": {"L": [{"L": [{"L": [{"N": "1"}, {"N": "5"}, {"N": "9"}, {"N": "13"}]}, {"L": [{"N": "2"}, {"N": "6"}, {"N": "10"}, {"N": "14"}]}, {"L": [{"N": "3"}, {"N": "7"}, {"N": "11"}, {"N": "15"}]}, {"L": [{"N": "4"}, {"N": "8"}, {"N": "12"}, {"N": "16"}]}]}, {"L": [{"L": [{"N": "17"}, {"N": "21"}, {"N": "25"}, {"N": "29"}]}, {"L": [{"N": "18"}, {"N": "22"}, {"N": "26"}, {"N": "30"}]}, {"L": [{"N": "19"}, {"N": "23"}, {"N": "27"}, {"N": "31"}]}, {"L": [{"N": "20"}, {"N": "24"}, {"N": "28"}, {"N": "32"}]}]}, {"L": [{"L": [{"N": "33"}, {"N": "37"}, {"N": "41"}, {"N": "45"}]}, {"L": [{"N": "34"}, {"N": "38"}, {"N": "42"}, {"N": "46"}]}, {"L": [{"N": "35"}, {"N": "39"}, {"N": "43"}, {"N": "47"}]}, {"L": [{"N": "36"}, {"N": "40"}, {"N": "44"}, {"N": "48"}]}]}, {"L": [{"L": [{"N": "49"}, {"N": "53"}, {"N": "57"}, {"N": "61"}]}, {"L": [{"N": "50"}, {"N": "54"}, {"N": "58"}, {"N": "62"}]}, {"L": [{"N": "51"}, {"N": "55"}, {"N": "59"}, {"N": "63"}]}, {"L": [{"N": "52"}, {"N": "56"}, {"N": "60"}, {"N": "64"}]}]}]}}}', 'url': 'https://dynamodb.us-east-2.amazonaws.com/', 'context': {'client_region': 'us-east-2', 'client_config': <botocore.config.Config object at 0x107b4d8d0>, 'has_streaming_input': False, 'auth_type': None}}
+2020-06-23 17:20:30,987 _emit Event request-created.dynamodb.PutItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x107b4d890>>
+2020-06-23 17:20:30,987 _emit Event choose-signer.dynamodb.PutItem: calling handler <function set_operation_specific_signer at 0x106786320>
+2020-06-23 17:20:30,988 add_auth Calculating signature using v4 auth.
+2020-06-23 17:20:30,988 add_auth CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:dynamodb.us-east-2.amazonaws.com
+x-amz-date:20200623T142030Z
+x-amz-target:DynamoDB_20120810.PutItem
+
+content-type;host;x-amz-date;x-amz-target
+07deea31f0ec1f763c19f5d44135ce7ef55ee39e26a1fc5a419d021be4be4f31
+2020-06-23 17:20:30,988 add_auth StringToSign:
+AWS4-HMAC-SHA256
+20200623T142030Z
+20200623/us-east-2/dynamodb/aws4_request
+532f54f76e0d44058dd9bcc3d27af4d8d1a42edf0099bfa0bc78868ab7edd3c0
+2020-06-23 17:20:30,988 add_auth Signature:
+d8fc859a92a039d43ccfb0a1ca1d55e5245de61c9db9d6ed3a2a20512f56c0da
+2020-06-23 17:20:30,988 _do_get_response Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://dynamodb.us-east-2.amazonaws.com/, headers={'X-Amz-Target': b'DynamoDB_20120810.PutItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.14.6 Python/3.7.4 Darwin/18.7.0 Botocore/1.17.6 Resource', 'X-Amz-Date': b'20200623T142030Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAS6WGLHB5FZBPBHXG/20200623/us-east-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=d8fc859a92a039d43ccfb0a1ca1d55e5245de61c9db9d6ed3a2a20512f56c0da', 'Content-Length': '1077'}>
+2020-06-23 17:20:30,989 _new_conn Starting new HTTPS connection (1): dynamodb.us-east-2.amazonaws.com:443
+2020-06-23 17:20:31,663 _make_request https://dynamodb.us-east-2.amazonaws.com:443 "POST / HTTP/1.1" 200 2
+2020-06-23 17:20:31,666 parse Response headers: {'Server': 'Server', 'Date': 'Tue, 23 Jun 2020 14:20:31 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'Content-Length': '2', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'UIFAM6MGP5JECFLBVL664BBHFNVV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '2745614147'}
+2020-06-23 17:20:31,667 parse Response body:
+b'{}'
+2020-06-23 17:20:31,668 _emit Event needs-retry.dynamodb.PutItem: calling handler <botocore.retryhandler.RetryHandler object at 0x106ea3bd0>
+2020-06-23 17:20:31,669 __call__ No retry needed.
+2020-06-23 17:20:31,669 _emit Event after-call.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x107ab29d0>>
+2020-06-23 17:20:31,669 __call__ Response: {'ResponseMetadata': {'RequestId': 'UIFAM6MGP5JECFLBVL664BBHFNVV4KQNSO5AEMVJF66Q9ASUAAJG', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'Server', 'date': 'Tue, 23 Jun 2020 14:20:31 GMT', 'content-type': 'application/x-amz-json-1.0', 'content-length': '2', 'connection': 'keep-alive', 'x-amzn-requestid': 'UIFAM6MGP5JECFLBVL664BBHFNVV4KQNSO5AEMVJF66Q9ASUAAJG', 'x-amz-crc32': '2745614147'}, 'RetryAttempts': 0}}
+2020-06-23 17:20:31,675 _log 127.0.0.1 - - [23/Jun/2020 17:20:31] "[37mPOST / HTTP/1.1[0m" 200 -
