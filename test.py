@@ -8,7 +8,7 @@ from decimal import Decimal
 
 @mock.patch("boto3.resource")
 class BasicTestCase(unittest.TestCase):
-    maxDiff=None
+    maxDiff = None
     matrix_asset = {
         "data": [
             [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]],
@@ -169,8 +169,14 @@ class BasicTestCase(unittest.TestCase):
                 " [19, 23, 27, 31], [20, 24, 28, 32]], [[33, 37, 41, 45],"
                 " [34, 38, 42, 46], [35, 39, 43, 47], [36, 40, 44, 48]],"
                 " [[49, 53, 57, 61], [50, 54, 58, 62], [51, 55, 59, 63],"
-                " [52, 56, 60, 64]]]"
+                " [52, 56, 60, 64]]]",
             )
+
+    def test_delete(self, resource):
+        with app.test_client() as client:
+            response = client.delete(f"/{666}")
+            self.assertEqual(response.status_code, 204)
+            resource().Table().delete_item.assert_called_with(Key={"id": 666})
 
 
 if __name__ == "__main__":
