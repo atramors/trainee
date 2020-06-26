@@ -35,20 +35,25 @@
 
 import numpy as np
 import random
-from funct import cvmatrix
+from funct import cwmatrix
 
 #  CREATE REGULAR LIST
 # number_list = [i for i in range(1, 65)]
 # matrix_1 = np.array(number_list)
 # four_dimensional = matrix_1.reshape(4, 4, 4)
-# new_matrix = cvmatrix(four_dimensional)
+# new_matrix = cwmatrix(four_dimensional)
 # print(new_matrix)
 
 
-#  CREATE REGULAR LIST 1-64
+# print(number_list)
+# print(matrix_1)
+# print(four_dimensional)
+
+
+#  CREATE LIST OF RANDOM NUMBERS 1-64
 # random_list = [random.randint(1,100) for i in range(1, 65)] # with loop
 # random_list = random.sample(range(1, 100), 64) # without loop
 # matrix_1 = np.array(random_list)
 # four_dimensional = matrix_1.reshape(4, 4, 4)
-# new_matrix = cvmatrix(four_dimensional)
+# new_matrix = cwmatrix(four_dimensional)
 # print(new_matrix)

@@ -4,7 +4,7 @@ import decimal
 import logging
 from flask import Flask, request
 from flask_restful import Resource, Api
-from funct import cvmatrix
+from funct import cwmatrix
 from random import randint
 
 logging.getLogger("boto3").setLevel(logging.WARNING)
@@ -37,7 +37,7 @@ class DataList(Resource):
             logger.error(
                 f"'data' key not found in json request. Original request payload: {request.data}."
             )
-        new_matrix = cvmatrix(matrix)
+        new_matrix = cwmatrix(matrix)
         logger.info(
             f"Created new matrix with 'id':\n{id_}\nIt is look like this after transformation:\n{new_matrix}\nNow it is ready to be upload to our db."
         )
@@ -57,9 +57,10 @@ class DataList(Resource):
             list_matrix = db_response["Items"]
         except KeyError:
             logger.error(
-                f"'Items' key not found or another db error occured. Original request payload: {request.data}."
+                f"'Items' key not found or another db error occured. Original response payload: {db_response.data}."
             )
         stringified = json.dumps(list_matrix, cls=DecimalEncoder)
+        logger.info(f"Stringified list of all matrices:\n{stringified}")
         return json.loads(stringified)
 
 
@@ -70,9 +71,14 @@ class DataDetail(Resource):
         self.table = dynamodb.Table("Table")
 
     def get(self, id):
-        result1 = self.table.get_item(Key={"id": id})
-        result = result1["Item"]["matrix"]
-        result = json.dumps(result, cls=DecimalEncoder)
+        try:
+            specific_dict = self.table.get_item(Key={"id": id})
+            specific_matrix = specific_dict["Item"]["matrix"]
+        except KeyError:
+            logger.error(
+                f"'id', 'Item' or 'matrix' key not found. Original dictionary payload: {specific_dict.data}."
+            )
+        result = json.dumps(specific_matrix, cls=DecimalEncoder)
         return result
 
     def delete(self, id):
@@ -92,7 +98,7 @@ class DataCW(Resource):
             list_matrix = db_response["Items"]
         except KeyError:
             logger.error(
-                f"'Items' key not found or another db error occured. Original request payload: {request.data}."
+                f"'Items' key not found or another db error occured. Original response payload: {db_response.data}."
             )
         stringified = json.dumps(list_matrix, cls=DecimalEncoder)
         matrixlist = json.loads(stringified)
