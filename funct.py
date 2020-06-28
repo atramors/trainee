@@ -1,6 +1,9 @@
 import numpy as np
 import random
 
+
+# from functools import reduce
+# from api import sumatrix
 # Clockwise turn matrix
 
 
@@ -29,5 +32,34 @@ def crmatrix_rand():
     return four_dimensional
 
 
-print(crmatrix_rand())
-print(crmatrix_norm())
+A = crmatrix_norm()
+B = crmatrix_norm()
+# print(crmatrix_rand())
+
+# Multiplication of 2 matrices
+
+# For loops
+
+# def matrixmult(A, B):
+#     C = []
+#     for m_num in range(4):
+#         matrix_ = []
+#         for row in range(4):
+#             column = []
+#             for col in range(4):
+#                 element = 0
+#                 for elem in range(4):
+#                     element += A[m_num][row][elem] * B[m_num][elem][col]
+#                 column.append(element)
+#             matrix_.append(column)
+#         C.append(matrix_)
+#     return C
+
+# List comprehension
+
+def matrixmult(A, B):
+    return [[[sum(A[m_num][row][elem] * B[m_num][elem][col] for elem in range(4)) for col in range(4)] for row in range(4)] for m_num in range(4)]
+
+
+
+print(matrixmult(A, B))

@@ -5,6 +5,7 @@ import logging
 from flask import Flask, request
 from flask_restful import Resource, Api
 from funct import cwmatrix
+from functools import reduce
 from random import randint
 
 logging.getLogger("boto3").setLevel(logging.WARNING)
@@ -109,6 +110,9 @@ class DataCW(Resource):
         # return json.loads(stringified)
         # return stringified
         return sumatrix
+        
+
+        # return reduce(mult, sumatrix)
 
 
 api.add_resource(DataList, "/")
