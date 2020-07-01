@@ -2,11 +2,15 @@ import boto3
 import json
 import decimal
 import logging
+import requests
 from flask import Flask, request
 from flask_restful import Resource, Api
-from funct import cwmatrix
+from funct import cwmatrix, crmatrix_norm, matrixmult
 from functools import reduce
+from profilehooks import profile
 from random import randint
+from day_1 import mat
+
 
 logging.getLogger("boto3").setLevel(logging.WARNING)
 logging.getLogger("botocore").setLevel(logging.WARNING)
@@ -30,6 +34,7 @@ class DataList(Resource):
         dynamodb = boto3.resource("dynamodb")
         self.table = dynamodb.Table("Table")
 
+    @profile(immediate=True)
     def post(self):
         id_ = randint(1, 1000000)
         try:
@@ -52,6 +57,7 @@ class DataList(Resource):
                 f"'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
             )
 
+    @profile(immediate=True)
     def get(self):
         try:
             db_response = self.table.scan()
@@ -71,6 +77,7 @@ class DataDetail(Resource):
         dynamodb = boto3.resource("dynamodb")
         self.table = dynamodb.Table("Table")
 
+    @profile(immediate=True)
     def get(self, id):
         try:
             specific_dict = self.table.get_item(Key={"id": id})
@@ -93,6 +100,7 @@ class DataCW(Resource):
         dynamodb = boto3.resource("dynamodb")
         self.table = dynamodb.Table("Table")
 
+    @profile(immediate=True)
     def get(self):
         try:
             db_response = self.table.scan()
@@ -106,13 +114,10 @@ class DataCW(Resource):
         sumatrix = []
         for item in range(len(matrixlist)):
             sumatrix.append(matrixlist[item]["matrix"])
+        mult_matrices = reduce(lambda x, y: matrixmult(x, y), sumatrix)
 
-        # return json.loads(stringified)
-        # return stringified
-        return sumatrix
-        
-
-        # return reduce(mult, sumatrix)
+        logger.info(f"The result of all matrices multiplication:\n{mult_matrices}")
+        return mult_matrices
 
 
 api.add_resource(DataList, "/")

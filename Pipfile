@@ -11,6 +11,8 @@ flask = "*"
 flask-restful = "*"
 boto3 = "*"
 numpy = "*"
+profilehooks = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
