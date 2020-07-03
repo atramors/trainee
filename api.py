@@ -5,7 +5,7 @@ import logging
 import requests
 from flask import Flask, request
 from flask_restful import Resource, Api
-from funct import cwmatrix, crmatrix_norm, matrixmult
+from funct import cwmatrix, crmatrix_norm, matrixmult, matrixmult3d
 from functools import reduce
 from profilehooks import profile
 from random import randint
@@ -34,7 +34,7 @@ class DataList(Resource):
         dynamodb = boto3.resource("dynamodb")
         self.table = dynamodb.Table("Table")
 
-    @profile(immediate=True)
+    # @profile(sort="cumtime")
     def post(self):
         id_ = randint(1, 1000000)
         try:
@@ -47,17 +47,20 @@ class DataList(Resource):
         logger.info(
             f"Created new matrix with 'id':\n{id_}\nIt is look like this after transformation:\n{new_matrix}\nNow it is ready to be upload to our db."
         )
-        try:
-            result = self.table.put_item(Item={"id": id_, "matrix": new_matrix})
-            if result["ResponseMetadata"]["HTTPStatusCode"] == 200:
-                return {"result": result}
-            return result, 500
-        except KeyError:
-            logger.error(
-                f"'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
-            )
+        mult_matrices2 = reduce(lambda x, y: matrixmult3d(x, y), new_matrix)
+        logger.info(f"Multiplied matrix looks like this:\n{mult_matrices2}")
+        return {}
+        # try:
+        #     result = self.table.put_item(Item={"id": id_, "matrix": mult_matrices2})
+        #     if result["ResponseMetadata"]["HTTPStatusCode"] == 200:
+        #         return {"result": result}
+        #     return result, 500
+        # except KeyError:
+        #     logger.error(
+        #         f"'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
+        #     )
 
-    @profile(immediate=True)
+    # @profile(immediate=True)
     def get(self):
         try:
             db_response = self.table.scan()
@@ -77,7 +80,7 @@ class DataDetail(Resource):
         dynamodb = boto3.resource("dynamodb")
         self.table = dynamodb.Table("Table")
 
-    @profile(immediate=True)
+    # @profile(immediate=True)
     def get(self, id):
         try:
             specific_dict = self.table.get_item(Key={"id": id})
@@ -100,7 +103,7 @@ class DataCW(Resource):
         dynamodb = boto3.resource("dynamodb")
         self.table = dynamodb.Table("Table")
 
-    @profile(immediate=True)
+    # @profile(immediate=True)
     def get(self):
         try:
             db_response = self.table.scan()

@@ -4,14 +4,17 @@ import cProfile
 from profilehooks import profile
 
 
-@profile(immediate=True)
+@profile(sort="cumtime")
 def cwmatrix(matrix):
-    return [[[matrix[k][i][j] for i in range(4)] for j in range(4)] for k in range(4)]
+    length = len(matrix)
+    return [
+        [[matrix[k][i][j] for i in range(4)] for j in range(4)] for k in range(length)
+    ]
 
 
 # Create regular 3-dimensional matrix
 
-@profile(immediate=True)
+# @profile
 def crmatrix_norm():
     number_list = [i for i in range(1, 65)]
     matrix_1 = np.array(number_list)
@@ -20,7 +23,7 @@ def crmatrix_norm():
 
 # Create random 3-dimensional matrix
 
-@profile(immediate=True)
+# @profile
 def crmatrix_rand():
     # random_list = [random.randint(1,100) for i in range(1, 65)] # with loop
     random_list = random.sample(range(1, 100), 64)  # without loop
@@ -52,7 +55,7 @@ def crmatrix_rand():
 # A = crmatrix_norm()
 # B = crmatrix_rand()
 
-@profile(immediate=True)
+# @profile
 def matrixmult(A, B):
     return [
         [
@@ -64,5 +67,28 @@ def matrixmult(A, B):
         ]
         for m_num in range(4)
     ]
+
+
+# @profile(sort="cumtime")
+# def matrixmult3d(A, B):
+#     C = []
+#     for row in range(4):
+#         column = []
+#         for col in range(4):
+#             element = 0
+#             for elem in range(4):
+#                 element += A[row][elem] * B[elem][col]
+#             column.append(element)
+#         C.append(column)
+#     return C
+
+@profile(sort="cumtime")
+def matrixmult3d(A, B):
+    dimension1 = range(len(A))
+    dimension2 = dimension3 = range(4)
+
+    return [[sum(A[row][elem] * B[elem][col] for elem in dimension3) for col in dimension2] for row in dimension1]
+
+
 # matrixmult(A, B)
 # cProfile.run('matrixmult(A,B)')
