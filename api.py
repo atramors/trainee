@@ -47,18 +47,17 @@ class DataList(Resource):
         logger.info(
             f"Created new matrix with 'id':\n{id_}\nIt is look like this after transformation:\n{new_matrix}\nNow it is ready to be upload to our db."
         )
-        mult_matrices2 = reduce(lambda x, y: matrixmult3d(x, y), new_matrix)
-        logger.info(f"Multiplied matrix looks like this:\n{mult_matrices2}")
-        return {}
-        # try:
-        #     result = self.table.put_item(Item={"id": id_, "matrix": mult_matrices2})
-        #     if result["ResponseMetadata"]["HTTPStatusCode"] == 200:
-        #         return {"result": result}
-        #     return result, 500
-        # except KeyError:
-        #     logger.error(
-        #         f"'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
-        #     )
+        # mult_matrices2 = reduce(lambda x, y: matrixmult3d(x, y), new_matrix)
+        # logger.info(f"Multiplied matrix looks like this:\n{mult_matrices2}")
+        try:
+            result = self.table.put_item(Item={"id": id_, "matrix": new_matrix})
+            if result["ResponseMetadata"]["HTTPStatusCode"] == 200:
+                return {"result": result}
+            return result, 500
+        except KeyError:
+            logger.error(
+                f"'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
+            )
 
     # @profile(immediate=True)
     def get(self):

@@ -6,10 +6,9 @@ from profilehooks import profile
 
 @profile(sort="cumtime")
 def cwmatrix(matrix):
-    length = len(matrix)
-    return [
-        [[matrix[k][i][j] for i in range(4)] for j in range(4)] for k in range(length)
-    ]
+    length = range(len(matrix))
+    row = column = range(4)
+    return [[[matrix[l][c][r] for c in column] for r in row] for l in length]
 
 
 # Create regular 3-dimensional matrix
@@ -26,69 +25,66 @@ def crmatrix_norm():
 # @profile
 def crmatrix_rand():
     # random_list = [random.randint(1,100) for i in range(1, 65)] # with loop
-    random_list = random.sample(range(1, 100), 64)  # without loop
+    random_list = random.sample(range(1, 65), 64)  # without loop
     matrix_1 = np.array(random_list)
     return matrix_1.reshape(4, 4, 4)
 
 
-# Multiplication of 2 matrices
+# MULTIPLICATION OF MATRICES
 
 # For loops
 
 # def matrixmult(A, B):
 #     C = []
-#     for m_num in range(4):
-#         matrix_ = []
-#         for row in range(4):
-#             column = []
-#             for col in range(4):
+#     length = range(len(A))
+#     row = column = numbers = range(4)
+#     for l in length:
+#         rows = []
+#         for r in row:
+#             columns = []
+#             for c in column:
 #                 element = 0
-#                 for elem in range(4):
-#                     element += A[m_num][row][elem] * B[m_num][elem][col]
-#                 column.append(element)
-#             matrix_.append(column)
-#         C.append(matrix_)
+#                 for n in numbers:
+#                     element += A[l][r][n] * B[l][n][c]
+#                 columns.append(element)
+#             rows.append(columns)
+#         C.append(rows)
 #     return C
 
 # List comprehension
 
-# A = crmatrix_norm()
-# B = crmatrix_rand()
-
 # @profile
 def matrixmult(A, B):
+    length = range(len(A))
+    row = column = numbers = range(4)
     return [
-        [
-            [
-                sum(A[m_num][row][elem] * B[m_num][elem][col] for elem in range(4))
-                for col in range(4)
-            ]
-            for row in range(4)
-        ]
-        for m_num in range(4)
+        [[sum(A[l][r][n] * B[l][n][c] for n in numbers) for c in column] for r in row]
+        for l in length
     ]
 
 
 # @profile(sort="cumtime")
 # def matrixmult3d(A, B):
 #     C = []
-#     for row in range(4):
+#     dimension1 = range(len(A))
+#     dimension2 = dimension3 = range(4)
+#     for r in dimension1:
 #         column = []
-#         for col in range(4):
+#         for c in dimension2:
 #             element = 0
-#             for elem in range(4):
-#                 element += A[row][elem] * B[elem][col]
+#             for n in dimension3:
+#                 element += A[r][n] * B[n][c]
 #             column.append(element)
 #         C.append(column)
 #     return C
+
 
 @profile(sort="cumtime")
 def matrixmult3d(A, B):
     dimension1 = range(len(A))
     dimension2 = dimension3 = range(4)
 
-    return [[sum(A[row][elem] * B[elem][col] for elem in dimension3) for col in dimension2] for row in dimension1]
-
-
-# matrixmult(A, B)
-# cProfile.run('matrixmult(A,B)')
+    return [
+        [sum(A[r][n] * B[n][c] for n in dimension3) for c in dimension2]
+        for r in dimension1
+    ]

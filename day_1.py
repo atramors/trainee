@@ -12,3 +12,11 @@ mat = [
 #         new.append(matrix[k][j][i])
 
 
+# A = B = mat
+
+# def matrixmult(A, B):
+#     length = range(len(A))
+#     row = column = numbers = range(4)
+#     return [[[sum(A[l][r][n] * B[l][n][c] for n in numbers)for c in column]for r in row]for l in length]
+
+# print(matrixmult(A, B))
