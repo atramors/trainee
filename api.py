@@ -1,3 +1,4 @@
+import asyncio
 import boto3
 import json
 import decimal
@@ -9,7 +10,7 @@ from funct import cwmatrix, crmatrix_norm, matrixmult, matrixmult3d
 from functools import reduce
 from profilehooks import profile
 from random import randint
-from day_1 import mat
+# from day_1 import mat
 
 
 logging.getLogger("boto3").setLevel(logging.WARNING)
@@ -45,7 +46,7 @@ class DataList(Resource):
             )
         new_matrix = cwmatrix(matrix)
         logger.info(
-            f"Created new matrix with 'id':\n{id_}\nIt is look like this after transformation:\n{new_matrix}\nNow it is ready to be upload to our db."
+            f"\nCreated and clockwised new matrix with 'id':\n{id_}\nand now it is ready to be upload to our db."
         )
         # mult_matrices2 = reduce(lambda x, y: matrixmult3d(x, y), new_matrix)
         # logger.info(f"Multiplied matrix looks like this:\n{mult_matrices2}")
@@ -56,7 +57,7 @@ class DataList(Resource):
             return result, 500
         except KeyError:
             logger.error(
-                f"'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
+                f"\n'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
             )
 
     # @profile(immediate=True)
@@ -66,10 +67,10 @@ class DataList(Resource):
             list_matrix = db_response["Items"]
         except KeyError:
             logger.error(
-                f"'Items' key not found or another db error occured. Original response payload: {db_response.data}."
+                f"\n'Items' key not found or another db error occured. Original response payload: {db_response.data}."
             )
         stringified = json.dumps(list_matrix, cls=DecimalEncoder)
-        logger.info(f"Stringified list of all matrices:\n{stringified}")
+        logger.info(f"\nStringified list of all matrices:\n{stringified}")
         return json.loads(stringified)
 
 
@@ -109,7 +110,7 @@ class DataCW(Resource):
             list_matrix = db_response["Items"]
         except KeyError:
             logger.error(
-                f"'Items' key not found or another db error occured. Original response payload: {db_response.data}."
+                f"\n'Items' key not found or another db error occured. Original response payload: {db_response.data}."
             )
         stringified = json.dumps(list_matrix, cls=DecimalEncoder)
         matrixlist = json.loads(stringified)
@@ -118,7 +119,7 @@ class DataCW(Resource):
             sumatrix.append(matrixlist[item]["matrix"])
         mult_matrices = reduce(lambda x, y: matrixmult(x, y), sumatrix)
 
-        logger.info(f"The result of all matrices multiplication:\n{mult_matrices}")
+        logger.info(f"\nThe result of all matrices multiplication:\n{mult_matrices}")
         return mult_matrices
 
 

@@ -20,3 +20,30 @@ mat = [
 #     return [[[sum(A[l][r][n] * B[l][n][c] for n in numbers)for c in column]for r in row]for l in length]
 
 # print(matrixmult(A, B))
+
+# import random
+# import numpy as np
+
+# def cwmatrix(matrix):
+#     length = range(len(matrix))
+#     row = column = range(4)
+#     return [[[matrix[l][c][r] for c in column] for r in row] for l in length]
+
+# def crmatrix_rand():
+#     # random_list = [random.randint(1,100) for i in range(1, 65)] # with loop
+#     random_list = random.sample(range(1, 65), 64)  # without loop
+#     matrix_1 = np.array(random_list)
+#     matrix_1 = matrix_1.reshape(4, 4, 4)
+#     return matrix_1.tolist()
+
+# A = crmatrix_rand()
+
+# print(A)
+# print()
+# print(cwmatrix(A))
+def x(i):
+    return i**2
+
+lis = [1,2,3,4,5]
+sq = list(map(x, lis))
+print(sq)
