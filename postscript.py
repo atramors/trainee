@@ -22,10 +22,11 @@ def crmatrix_rand():
 
     return matrix_1.tolist()
 
-for i in range(10):
-    res = requests.post("http://127.0.0.1:5000/", json={"data": crmatrix_norm()})
-    # print(res.status_code)
-# res = requests.post("http://127.0.0.1:5000/", json={"data": crmatrix_norm()})
+
+# for i in range(10):
+#     res = requests.post("http://127.0.0.1:5000/", json={"data": crmatrix_norm()})
+# print(res.status_code)
+res = requests.post("http://127.0.0.1:5000/", json={"data": crmatrix_norm()})
 
 # class Coro1(object):
 #     def __await__(self):
@@ -56,7 +57,6 @@ for i in range(10):
 # a()
 
 
-
 # @timecall
 # def b():
 #     for i in range(10):
@@ -85,5 +85,4 @@ for i in range(10):
 #     asyncio.run(coro2())
 
 # asyn()
-
 

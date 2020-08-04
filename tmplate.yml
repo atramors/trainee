@@ -1,25 +1,213 @@
-
 AWSTemplateFormatVersion: "2010-09-09"
-Resources: 
-  NewmyDynamoDBTable: 
+Parameters:
+  PackVersion:
+    Type: String
+Resources:
+  MyRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: This will be a new role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: /
+      Policies:
+        - PolicyName: sqs-access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Action:
+                  - sqs:*
+                Effect: Allow
+                Resource: "*"
+        - PolicyName: lambda-access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - cloudformation:DescribeChangeSet
+                  - cloudformation:DescribeStackResources
+                  - cloudformation:DescribeStacks
+                  - cloudformation:GetTemplate
+                  - cloudformation:ListStackResources
+                  - cloudwatch:*
+                  - cognito-identity:ListIdentityPools
+                  - cognito-sync:GetCognitoEvents
+                  - cognito-sync:SetCognitoEvents
+                  - dynamodb:*
+                  - events:*
+                  - iam:GetPolicy
+                  - iam:GetPolicyVersion
+                  - iam:GetRole
+                  - iam:GetRolePolicy
+                  - iam:ListAttachedRolePolicies
+                  - iam:ListRolePolicies
+                  - iam:ListRoles
+                  - iam:PassRole
+                  - iot:AttachPrincipalPolicy
+                  - iot:AttachThingPrincipal
+                  - iot:CreateKeysAndCertificate
+                  - iot:CreatePolicy
+                  - iot:CreateThing
+                  - iot:CreateTopicRule
+                  - iot:DescribeEndpoint
+                  - iot:GetTopicRule
+                  - iot:ListPolicies
+                  - iot:ListThings
+                  - iot:ListTopicRules
+                  - iot:ReplaceTopicRule
+                  - lambda:*
+                  - logs:*
+                  - s3:*
+                  - sqs:ListQueues
+                  - sqs:SendMessage
+                  - tag:GetResources
+                  - xray:PutTelemetryRecords
+                  - xray:PutTraceSegments
+                Resource: "*"
+        - PolicyName: self-access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - iam:ListUsers
+                  - iam:ListRoles
+                  - iam:UntagUser
+                  - iam:UntagRole
+                  - iam:ListRoleTags
+                  - iam:ListUserTags
+                  - iam:TagRole
+                  - iam:TagUser
+                  - iam:UntagUser
+                  - iam:UntagRole
+                  - iam:AttachRolePolicy
+                  - iam:CreateRole
+                  - iam:PutRolePolicy
+                Resource:
+                  - arn:aws:iam::203353176186:user/user
+                  - arn:aws:iam::203353176186:role/*
+        - PolicyName: dynamo-access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Action:
+                  - dynamodb:*
+                  - dax:*
+                  - application-autoscaling:DeleteScalingPolicy
+                  - application-autoscaling:DeregisterScalableTarget
+                  - application-autoscaling:DescribeScalableTargets
+                  - application-autoscaling:DescribeScalingActivities
+                  - application-autoscaling:DescribeScalingPolicies
+                  - application-autoscaling:PutScalingPolicy
+                  - application-autoscaling:RegisterScalableTarget
+                  - cloudwatch:DeleteAlarms
+                  - cloudwatch:DescribeAlarmHistory
+                  - cloudwatch:DescribeAlarms
+                  - cloudwatch:DescribeAlarmsForMetric
+                  - cloudwatch:GetMetricStatistics
+                  - cloudwatch:ListMetrics
+                  - cloudwatch:PutMetricAlarm
+                  - datapipeline:ActivatePipeline
+                  - datapipeline:CreatePipeline
+                  - datapipeline:DeletePipeline
+                  - datapipeline:DescribeObjects
+                  - datapipeline:DescribePipelines
+                  - datapipeline:GetPipelineDefinition
+                  - datapipeline:ListPipelines
+                  - datapipeline:PutPipelineDefinition
+                  - datapipeline:QueryObjects
+                  - iam:GetRole
+                  - iam:ListRoles
+                  - lambda:CreateFunction
+                  - lambda:ListFunctions
+                  - lambda:ListEventSourceMappings
+                  - lambda:CreateEventSourceMapping
+                  - lambda:DeleteEventSourceMapping
+                  - lambda:GetFunctionConfiguration
+                  - lambda:DeleteFunction
+                  - resource-groups:ListGroups
+                  - resource-groups:ListGroupResources
+                  - resource-groups:GetGroup
+                  - resource-groups:GetGroupQuery
+                  - resource-groups:DeleteGroup
+                  - resource-groups:CreateGroup
+                  - tag:GetResources
+                Effect: Allow
+                Resource: "*"
+              - Action: cloudwatch:GetInsightRuleReport
+                Effect: Allow
+                Resource: arn:aws:cloudwatch:*:*:insight-rule/DynamoDBContributorInsights*
+              - Action:
+                  - iam:PassRole
+                Effect: Allow
+                Resource: "*"
+                Condition:
+                  StringLike:
+                    iam:PassedToService:
+                      - application-autoscaling.amazonaws.com
+                      - dax.amazonaws.com
+              - Effect: Allow
+                Action:
+                  - iam:CreateServiceLinkedRole
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    iam:AWSServiceName:
+                      - replication.dynamodb.amazonaws.com
+                      - dax.amazonaws.com
+                      - dynamodb.application-autoscaling.amazonaws.com
+                      - contributorinsights.dynamodb.amazonaws.com
+
+  NewmyDynamoDBTable:
     Type: AWS::DynamoDB::Table
-    Properties: 
-      AttributeDefinitions: 
-        - 
-          AttributeName: "id"
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "id"
           AttributeType: "N"
-        - 
-          AttributeName: "Matrix"
-          AttributeType: "S"
-      KeySchema: 
-        - 
-          AttributeName: "id"
+      KeySchema:
+        - AttributeName: "id"
           KeyType: "HASH"
-        - 
-          AttributeName: "Matrix"
-          KeyType: "RANGE"
-      ProvisionedThroughput: 
-        ReadCapacityUnits: "5"
-        WriteCapacityUnits: "5"
-      TableName: "newTable"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      TableName: newTable
+
+  NewLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: newbucket666
+        S3Key: cwmat.zip
+        S3ObjectVersion: !Ref PackVersion
+      Handler: cwmatrix.lambda_handler
+      Runtime: python3.7
+      Role: !GetAtt MyRole.Arn
+
+  NewLambdaEventSource:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      EventSourceArn: !GetAtt MyQueue.Arn
+      FunctionName: !GetAtt NewLambda.Arn
+
+  DeadLetterQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: dead-letter-queue
+
+  MyQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt DeadLetterQueue.Arn
+        maxReceiveCount: 5
+      VisibilityTimeout: 5
+      QueueName: my-queue
       

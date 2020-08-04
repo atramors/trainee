@@ -10,7 +10,6 @@ from funct import cwmatrix, crmatrix_norm, matrixmult, matrixmult3d
 from functools import reduce
 from profilehooks import profile
 from random import randint
-# from day_1 import mat
 
 
 logging.getLogger("boto3").setLevel(logging.WARNING)
@@ -20,6 +19,8 @@ logger = logging.getLogger(__file__)
 
 app = Flask(__name__)
 api = Api(app)
+lambda_client = boto3.client("lambda")
+sqs_client = boto3.client("sqs")
 
 
 class DecimalEncoder(json.JSONEncoder):
@@ -33,32 +34,27 @@ class DataList(Resource):
     def __init__(self):
         super().__init__()
         dynamodb = boto3.resource("dynamodb")
+        sqs = boto3.resource("sqs")
         self.table = dynamodb.Table("Table")
 
     # @profile(sort="cumtime")
     def post(self):
-        id_ = randint(1, 1000000)
         try:
             matrix = request.get_json()["data"]
+
         except KeyError:
             logger.error(
-                f"'data' key not found in json request. Original request payload: {request.data}."
+                f"'data' key not found in json request. Original request\
+                     payload: {request.data}."
             )
-        new_matrix = cwmatrix(matrix)
-        logger.info(
-            f"\nCreated and clockwised new matrix with 'id':\n{id_}\nand now it is ready to be upload to our db."
+        event = {"matrix": matrix}
+        # SQS message
+        sqs_queue_url = sqs_client.get_queue_url(
+            QueueName="my-queue")["QueueUrl"]
+        response = sqs_client.send_message(
+            QueueUrl=sqs_queue_url, MessageBody=json.dumps(event)
         )
-        # mult_matrices2 = reduce(lambda x, y: matrixmult3d(x, y), new_matrix)
-        # logger.info(f"Multiplied matrix looks like this:\n{mult_matrices2}")
-        try:
-            result = self.table.put_item(Item={"id": id_, "matrix": new_matrix})
-            if result["ResponseMetadata"]["HTTPStatusCode"] == 200:
-                return {"result": result}
-            return result, 500
-        except KeyError:
-            logger.error(
-                f"\n'ResponseMetadata' or 'HTTPStatusCode' key not found in result. Original result: {result.data}."
-            )
+        return response
 
     # @profile(immediate=True)
     def get(self):
@@ -67,7 +63,8 @@ class DataList(Resource):
             list_matrix = db_response["Items"]
         except KeyError:
             logger.error(
-                f"\n'Items' key not found or another db error occured. Original response payload: {db_response.data}."
+                f"\n'Items' key not found or another db error occured.\
+                     Original response payload: {db_response.data}."
             )
         stringified = json.dumps(list_matrix, cls=DecimalEncoder)
         logger.info(f"\nStringified list of all matrices:\n{stringified}")
@@ -87,7 +84,8 @@ class DataDetail(Resource):
             specific_matrix = specific_dict["Item"]["matrix"]
         except KeyError:
             logger.error(
-                f"'id', 'Item' or 'matrix' key not found. Original dictionary payload: {specific_dict.data}."
+                f"'id', 'Item' or 'matrix' key not found. Original dictionary\
+                     payload: {specific_dict.data}."
             )
         result = json.dumps(specific_matrix, cls=DecimalEncoder)
         return result
@@ -110,7 +108,8 @@ class DataCW(Resource):
             list_matrix = db_response["Items"]
         except KeyError:
             logger.error(
-                f"\n'Items' key not found or another db error occured. Original response payload: {db_response.data}."
+                f"\n'Items' key not found or another db error occured. Original\
+                     response payload: {db_response.data}."
             )
         stringified = json.dumps(list_matrix, cls=DecimalEncoder)
         matrixlist = json.loads(stringified)
@@ -119,7 +118,10 @@ class DataCW(Resource):
             sumatrix.append(matrixlist[item]["matrix"])
         mult_matrices = reduce(lambda x, y: matrixmult(x, y), sumatrix)
 
-        logger.info(f"\nThe result of all matrices multiplication:\n{mult_matrices}")
+        logger.info(
+            f"\nThe result of all matrices multiplication:\
+            \n{mult_matrices}"
+        )
         return mult_matrices
 
 

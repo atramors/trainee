@@ -15,6 +15,7 @@ profilehooks = "*"
 requests = "*"
 asyncio = "*"
 aiohttp = "*"
+cfn-lint = "*"
 
 [requires]
 python_version = "3.7"
