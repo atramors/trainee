@@ -18,39 +18,39 @@ class BasicTestCase(unittest.TestCase):
         ]
     }
 
-    def test_post(self, resource):
-        with app.test_client() as client:
-            resource().Table().put_item.return_value = {
-                "ResponseMetadata": {"HTTPStatusCode": 200}
-            }
-            response = client.post("/", json=self.matrix_asset)
-            self.assertEqual(response.status_code, 200)
-            resource().Table().put_item.assert_called_with(
-                Item={
-                    "id": mock.ANY,
-                    "matrix": [
-                        [[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 16]],
-                        [
-                            [17, 21, 25, 29],
-                            [18, 22, 26, 30],
-                            [19, 23, 27, 31],
-                            [20, 24, 28, 32],
-                        ],
-                        [
-                            [33, 37, 41, 45],
-                            [34, 38, 42, 46],
-                            [35, 39, 43, 47],
-                            [36, 40, 44, 48],
-                        ],
-                        [
-                            [49, 53, 57, 61],
-                            [50, 54, 58, 62],
-                            [51, 55, 59, 63],
-                            [52, 56, 60, 64],
-                        ],
-                    ],
-                }
-            )
+    #def test_post(self, resource):
+    #    with app.test_client() as client:
+    #        resource().Table().put_item.return_value = {
+    #            "ResponseMetadata": {"HTTPStatusCode": 200}
+    #       }
+    #        response = client.post("/", json=self.matrix_asset)
+    #        self.assertEqual(response.status_code, 200)
+    #        resource().Table().put_item.assert_called_with(
+    #            Item={
+     #                "id": mock.ANY,
+     #               "matrix": [
+     #                   [[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 16]],
+     #                   [
+     #                       [17, 21, 25, 29],
+     #                       [18, 22, 26, 30],
+     #                       [19, 23, 27, 31],
+     #                       [20, 24, 28, 32],
+     #                   ],
+     #                  [
+     #                       [33, 37, 41, 45],
+     #                       [34, 38, 42, 46],
+     #                       [35, 39, 43, 47],
+     #                      [36, 40, 44, 48],
+     #                   ],
+     #                   [
+     #                       [49, 53, 57, 61],
+     #                       [50, 54, 58, 62],
+     #                       [51, 55, 59, 63],
+     #                       [52, 56, 60, 64],
+     #                  ],
+     #              ],
+     #           }
+     #       )
 
     def test_get(self, resource):
         with app.test_client() as client:
